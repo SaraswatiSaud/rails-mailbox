@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 2020_05_07_230212) do
   create_table "emails", force: :cascade do |t|
     t.string "subject"
     t.text "content"
-    t.string "from"
-    t.string "to"
+    t.text "from", default: [], array: true
+    t.text "to", default: [], array: true
     t.jsonb "settings"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -10,6 +10,69 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap
  *= require_tree .
  *= require_self
  */
+
+body {
+  background: #f0f5f9;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.p-signin {
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0;
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+
+.p-signin_form {
+  width: 424px;
+    box-shadow: 0 2px 3px rgba(236,242,246,0.75);
+    border-radius: 3px;
+    background-color: #FFFFFF;
+    padding: 0;
+}
+
+.p-signin__form-heading {
+    border-bottom: 1px solid rgba(147,157,170,0.2);
+    padding: 17px 22px 18px 22px;
+    font-size: 28px;
+    color: #222;
+    margin: 0;
+    text-align: center;
+  }
+
+  .p-signin__form-content {
+    padding: 18px 22px 22px 22px;
+  }
+
+  .p-signin__form-links {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+.btn-info {
+  background: #ee2560;
+  border: 1px solid #D81159;
+}
+
+.btn-info:hover{
+  background: #D81159;
+  border: 1px solid #D81159;
+}

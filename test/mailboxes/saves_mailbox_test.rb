@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ForwardsMailboxTest < ActionMailbox::TestCase
+class SavesMailboxTest < ActionMailbox::TestCase
   # test "receive mail" do
   #   receive_inbound_email_from_mail \
   #     to: '"someone" <someone@example.com>',

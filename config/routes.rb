@@ -2,6 +2,8 @@
 
 Rails.application.routes.draw do
   devise_for :users
-  resources :emails
+  resources :emails do
+    post 'parse_email', on: :collection
+  end
   root to: 'emails#index'
 end

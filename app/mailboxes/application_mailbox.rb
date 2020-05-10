@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
+#Application Mailbox
 class ApplicationMailbox < ActionMailbox::Base
-  routing /^save@/i     => :forwards
-  routing /@replies\./i => :replies
+  routing all: :saves
 end

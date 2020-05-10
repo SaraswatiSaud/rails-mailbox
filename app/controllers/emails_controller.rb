@@ -1,5 +1,5 @@
 class EmailsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_email, only: [:show, :edit, :update, :destroy]
 
   # GET /emails
@@ -60,6 +60,10 @@ class EmailsController < ApplicationController
       format.html { redirect_to emails_url, notice: 'Email was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def parse_email
+    raise params.inspect
   end
 
   private

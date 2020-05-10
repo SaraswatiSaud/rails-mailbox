@@ -1,0 +1,24 @@
+.container
+  .p-signin
+    .p-signin_form
+      h2.p-signin__form-heading Log In
+      .p-signin__form-content
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .row
+            .form-group.col-md-12
+              = f.label :email
+              = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+
+          .row
+            .form-group.col-md-12
+              = f.label :password
+              = f.password_field :password, autocomplete: "current-password", class: 'form-control'
+
+          .row
+            .form-group.col-md-12
+              .actions
+                = f.submit "Log in", class: 'btn btn-info btn-block'
+
+          .text-center
+            .p-signin__form-links
+              = render "devise/shared/links"
