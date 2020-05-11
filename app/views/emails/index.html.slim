@@ -1,28 +1,37 @@
-p#notice= notice
-- if user_signed_in?
-  .text-right= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'text-right'
+.container
+  p#notice= notice
 
-= link_to 'New Email', new_email_path
+  / = link_to 'New Email', new_email_path
 
-table.table.table-bordered
-  thead
-    tr
-      th Subject
-      th Content
-      th From
-      th To
-      th.text-center colspan="3" Actions
-  tbody
-    - @emails.each do |email|
-      tr
-        td= email.subject
-        td= email.content
-        td
-          - email.from.each do |from|
-            p= from
-        td
-          - email.to.each do |to|
-            p= to
-        td= link_to 'Show', email
-        td= link_to 'Edit', edit_email_path(email)
-        td= link_to 'Destroy', email, method: :delete, data: {confirm: 'Are you sure?'}
+  h1.pb-3  MailBox
+
+  - if @emails.any?
+    table.table.table-bordered
+      thead
+        tr
+          th Subject
+          th Content
+          th From
+          th To
+          th.text-center colspan="3" Actions
+      tbody
+        - @emails.each do |email|
+          tr
+            td= email.subject
+            td= email.content
+            td
+              - email.from.each do |from|
+                p= from
+            td
+              - email.to.each do |to|
+                p= to
+            td= link_to 'Show', email
+            td= link_to 'Edit', edit_email_path(email)
+            td= link_to 'Destroy', email, method: :delete, data: {confirm: 'Are you sure?'}
+  - else
+    p.border.border-danger.p-3
+      | No Emails yet. Send emails to
+      span.badge.badge-secondary.mx-2 info@mail.jharko.com
+      | or
+      span.badge.badge-secondary.mx-2 test@mail.jharko.com
+      | to see emails here.

@@ -17,6 +17,7 @@
 
 body {
   background: #f0f5f9;
+  margin: 0;
 }
 
 .container {
@@ -81,6 +82,6 @@ body {
   margin: 1em 0;
   width: 100%;
   background: #FFF;
-  color: #024457;  
+  color: #024457;
   border: 1px solid #167F92;
 }

@@ -1,0 +1,19 @@
+p#notice= notice
+p
+  strong Subject:
+  = @email.subject
+p
+  strong Content:
+  = @email.content
+p
+  strong From:
+  = @email.from
+p
+  strong To:
+  = @email.to
+p
+  strong Settings:
+  = @email.settings
+= link_to 'Edit', edit_email_path(@email)
+| \
+= link_to 'Back', emails_path
