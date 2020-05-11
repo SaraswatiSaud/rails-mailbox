@@ -1,0 +1,39 @@
+.p-signin__form-content
+  = form_with(model: email, local: true) do |form|
+    - if email.errors.any?
+      #error_explanation
+        h2
+          = pluralize(email.errors.count, "error")
+          | prohibited this email from being saved:
+        ul
+          - email.errors.full_messages.each do |message|
+            li= message
+    .row
+      .form-group.col-md-12
+        = form.label :subject
+        = form.text_field :subject, class: 'form-control'
+
+    .row
+      .form-group.col-md-12
+        = form.label :content
+        = form.text_area :content, class: 'form-control'
+
+    .row
+      .form-group.col-md-12
+        = form.label :from
+        = form.text_field :from, class: 'form-control'
+
+    .row
+      .form-group.col-md-12
+        = form.label :to
+        = form.text_field :to, class: 'form-control'
+
+    .row
+      .form-group.col-md-12
+        = form.label :settings
+        = form.text_field :settings, class: 'form-control'
+
+    .row
+      .form-group.col-md-12
+        .actions
+          = form.submit

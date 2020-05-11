@@ -1,0 +1,8 @@
+.container
+  .p-signin
+    .p-signin_form
+      h2.p-signin__form-heading Editing Email
+      = render 'form', email: @email
+      = link_to 'Show', @email
+
+      .text-left= link_to 'Back', emails_path

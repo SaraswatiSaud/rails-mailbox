@@ -1,0 +1,30 @@
+p#notice= notice
+- if user_signed_in?
+  .text-right= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'text-right'
+
+= link_to 'New Email', new_email_path
+
+table.table.table-bordered
+  thead
+    tr
+      th Subject
+      th Content
+      th From
+      th To
+      th Settings
+      th.text-center colspan="3" Actions
+  tbody
+    - @emails.each do |email|
+      tr
+        td= email.subject
+        td= email.content
+        td
+          - email.from.each do |from|
+            li= from
+        td
+          - email.to.each do |to|
+            li= to
+        td= email.settings
+        td= link_to 'Show', email
+        td= link_to 'Edit', edit_email_path(email)
+        td= link_to 'Destroy', email, method: :delete, data: {confirm: 'Are you sure?'}

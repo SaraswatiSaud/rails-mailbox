@@ -1,0 +1,33 @@
+.container
+  .p-signin
+    .p-signin_form
+      h2.p-signin__form-heading Sign Up
+      .p-signin__form-content
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .row
+            .form-group.col-md-12
+              = f.label :email
+              = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+
+          .row
+            .form-group.col-md-12
+              = f.label :password
+              - if @minimum_password_length
+                em
+                  | (#{@minimum_password_length} characters minimum)
+              = f.password_field :password, autocomplete: "new-password", class: 'form-control'
+
+          .row
+            .form-group.col-md-12
+              = f.label :password_confirmation
+              = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
+
+          .row
+            .form-group.col-md-12
+              .actions
+                = f.submit "Sign up", class: 'btn btn-info btn-block'
+
+          .text-center
+            .p-signin__form-links
+              = render "devise/shared/links"
