@@ -25,7 +25,7 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
   config.action_mailbox.ingress = :sendgrid
-  config.hosts << "64798bcf.ngrok.io"
+  config.hosts << "railsmailbox.herokuapp.com"
 
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
