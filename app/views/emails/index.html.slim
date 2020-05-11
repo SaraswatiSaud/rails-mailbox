@@ -1,4 +1,4 @@
-.container
+.container-fluid
   p#notice= notice
 
   / = link_to 'New Email', new_email_path
@@ -6,28 +6,19 @@
   h1.pb-3  MailBox
 
   - if @emails.any?
-    table.table.table-bordered
-      thead
-        tr
-          th Subject
-          th Content
-          th From
-          th To
-          th.text-center colspan="3" Actions
-      tbody
-        - @emails.each do |email|
-          tr
-            td= email.subject
-            td= email.content
-            td
+    .row
+      .col-md-3
+        ul.list-group
+          - @emails.each do |email|
+            li.list-group-item
+              div= link_to email.subject, email, remote: true
               - email.from.each do |from|
-                p= from
-            td
-              - email.to.each do |to|
-                p= to
-            td= link_to 'Show', email
-            td= link_to 'Edit', edit_email_path(email)
-            td= link_to 'Destroy', email, method: :delete, data: {confirm: 'Are you sure?'}
+                .small= from
+          / - email.to.each do |to|
+          /   p= to
+
+      .col-md-9
+        #email_body.border.p-3.bg-white Click on an email to view it's body
   - else
     p.border.border-danger.p-3
       | No Emails yet. Send emails to

@@ -7,5 +7,8 @@ class SavesMailbox < ApplicationMailbox
                  content: mail.body.decoded,
                  from: mail.from,
                  to: mail.to)
+
+    # Update front-end
+    # MailboxChannel.broadcast_to 'mailbox', '<p>fjdsalfds</p>'
   end
 end
