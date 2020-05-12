@@ -1,0 +1,17 @@
+p#notice= notice
+p
+  strong= @email.subject
+p.small
+  span From:&nbsp;
+  span= @email.from
+p.small
+  span To:&nbsp;
+  span= @email.to
+
+p
+  strong Content:
+  = @email.content
+
+= link_to 'Edit', edit_email_path(@email)
+| \
+= link_to 'Back', emails_path
